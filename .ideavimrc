@@ -45,6 +45,9 @@ nmap gr <Action>(FindUsages)
 imap jj <Esc>
 map <leader>ee :NERDTreeToggle<CR>
 map <leader>ef :NERDTreeFind<CR>
+map <leader>bc <Action>(CloseContent)
+map <leader>bo <Action>(CloseAllEditorsButActive)
+map <leader>bq <Action>(CloseAllEditors)
 map <leader>db <Action>(ToggleLineBreakpoint)
 
 " Keybindings window navigation
