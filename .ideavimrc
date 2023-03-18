@@ -1,36 +1,15 @@
-"" Source your .vimrc
-"source ~/.vimrc
-
 let mapleader = " " " set mapleader to space
 
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
 set scrolloff=8
-
-" Do incremental searching.
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
 clearForm
-" Use system clipboard
 set clipboard='unnamedplus'
-" Don't use Ex mode, use Q for formatting.
 
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
-
-
-" Find more examples here: https://jb.gg/share-ideavimrc
 "Plugins
+
 " NERDTree
 set NERDTree
 " Which-key
@@ -39,18 +18,33 @@ set notimeout
 set timeoutlen=5000"
 
 " Keybindings
+" Don't use Ex mode, use Q for formatting.
 map Q gq
+
+" Language Keybindings
 nmap gi <Action>(GotoImplementation)
 nmap gr <Action>(FindUsages)
 imap jj <Esc>
+
+" Explorer Keybindings
 map <leader>ee :NERDTreeToggle<CR>
 map <leader>ef :NERDTreeFind<CR>
+
+" Buffer/Editor Keybindings
 map <leader>bc <Action>(CloseContent)
 map <leader>bo <Action>(CloseAllEditorsButActive)
 map <leader>bq <Action>(CloseAllEditors)
+map <leader>bh <Action>(MoveEditorToOppositeTabGroup)
+map <leader>bk <Action>(MoveEditorToOppositeTabGroup)
+map <leader>bj <Action>(MoveTabDown)
+map <leader>bl <Action>(MoveTabRight)
+map <leader>bf <Action>(ReformatCode)
+
+" Debug Keybindings
+map <leader>dd <Action>(Debug)
 map <leader>db <Action>(ToggleLineBreakpoint)
 
-" Keybindings window navigation
+" Navigation Keybindings
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
