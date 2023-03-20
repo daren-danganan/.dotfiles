@@ -1,4 +1,5 @@
-let mapleader = " " " set mapleader to space
+" set mapleader to space
+let mapleader = " "
 
 set scrolloff=8
 set incsearch
@@ -48,6 +49,7 @@ map <leader>dr <Action>(Run)
 map <leader>dh <Action>(ShowErrorDescription)
 map <leader>dn <Action>(GotoNextError)
 map <leader>dp <Action>(GotoPreviousError)
+map <leader>dm <Action>(ChooseDebugConfiguration)
 
 " Terminal Keybindings
 map <leader>tt <Action>(ActivateTerminalToolWindow)
