@@ -55,6 +55,7 @@ map <leader>dl <Action>(Resume)
 map <leader>dk <Action>(StepOver)
 map <leader>dj <Action>(StepInto)
 map <leader>dh <Action>(StepOut)
+map <leader>ds <Action>(Stop)
 
 " Terminal Keybindings
 map <leader>tt <Action>(ActivateTerminalToolWindow)
