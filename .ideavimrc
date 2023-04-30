@@ -24,6 +24,10 @@ set multicursor
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
+" Convenience Keybindings
+vmap < <gv
+vmap > >gv
+
 " Language Keybindings
 nmap gi <Action>(GotoImplementation)
 nmap gr <Action>(FindUsages)
