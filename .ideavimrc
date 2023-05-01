@@ -55,6 +55,8 @@ map <leader>dr <Action>(Run)
 map <leader>dh <Action>(ShowErrorDescription)
 map <leader>dn <Action>(GotoNextError)
 map <leader>dp <Action>(GotoPreviousError)
+map <leader>dc <Action>(ChooseDebugConfiguration)
+map <leader>dq <Action>(Stop)
 
 " Terminal Keybindings
 map <leader>tt <Action>(ActivateTerminalToolWindow)
