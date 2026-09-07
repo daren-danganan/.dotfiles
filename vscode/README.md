@@ -43,8 +43,11 @@ xargs -n1 kiro --install-extension < extensions.txt
 | `anthropic.claude-code` | Claude Code |
 
 Optional per-language profile add-ons — install each into its own dedicated
-profile rather than the default one, via `Profiles > Create Profile`, to keep
-the default profile lean:
+profile (`Profiles > Create Profile` in the editor's UI first; the CLI can't
+create a named profile headlessly, only populate one that already exists).
+Each profile is otherwise empty by default, so also install `vscodevim.vim`
+and `vspacecode.whichkey` (see table above) and symlink `settings.json` into
+it, to keep the same Vim/Which-Key muscle memory as the default profile:
 
 **Java** ([`extensions-java.txt`](extensions-java.txt)) — language support,
 debugger, test runner, Maven/Gradle tooling:
@@ -54,7 +57,9 @@ xargs -n1 code --install-extension < extensions-java.txt
 ```
 
 **Python** ([`extensions-python.txt`](extensions-python.txt)) — language
-support (Pylance), debugger, and Ruff for linting/formatting:
+support (Pylance), debugger, and Ruff for linting/formatting. Pylance is
+Microsoft-proprietary and isn't published to Open VSX, so it won't install on
+VSCodium or Kiro — those editors get the rest of the set instead:
 
 ```sh
 xargs -n1 code --install-extension < extensions-python.txt
@@ -68,4 +73,22 @@ into VS Code):
 xargs -n1 code --install-extension < extensions-typescript.txt
 ```
 
-Swap `code` for `codium` or `kiro` to install into those editors instead.
+Swap `code` for `codium` or `kiro` to install into those editors instead, e.g.:
+
+```sh
+codium --profile Python --install-extension vscodevim.vim
+codium --profile Python --install-extension vspacecode.whichkey
+xargs -I{} codium --profile Python --install-extension {} < extensions-python.txt
+```
+
+To symlink `settings.json` into a named profile, look up its storage location
+(profiles are stored under a generated hash, mapped by name in
+`globalStorage/storage.json` in the editor's user dir) and link into
+`profiles/<hash>/settings.json`:
+
+```sh
+user_dir="$HOME/Library/Application Support/VSCodium/User"  # or Code / Kiro
+hash=$(grep -B1 '"name": "Python"' "$user_dir/globalStorage/storage.json" \
+    | grep '"location"' | sed -E 's/.*"location": "([^"]+)".*/\1/')
+ln -sf "$(pwd)/settings.json" "$user_dir/profiles/$hash/settings.json"
+```
