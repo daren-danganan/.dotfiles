@@ -23,4 +23,4 @@ Then follow [`intellij/README.md`](intellij/README.md) to install the
 JetBrains plugins (no CLI-free way to do this until the IDE has run once).
 
 See [`vscode/README.md`](vscode/README.md) for details on the VS Code
-extension sets, including the optional Java profile.
+extension sets, including the optional Java, Python, and TypeScript profiles.

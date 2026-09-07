@@ -42,12 +42,30 @@ xargs -n1 kiro --install-extension < extensions.txt
 | `vspacecode.whichkey` | Leader-key popup menu |
 | `anthropic.claude-code` | Claude Code |
 
-Optional Java profile add-ons ([`extensions-java.txt`](extensions-java.txt)):
+Optional per-language profile add-ons — install each into its own dedicated
+profile rather than the default one, via `Profiles > Create Profile`, to keep
+the default profile lean:
+
+**Java** ([`extensions-java.txt`](extensions-java.txt)) — language support,
+debugger, test runner, Maven/Gradle tooling:
 
 ```sh
 xargs -n1 code --install-extension < extensions-java.txt
 ```
 
-(Java language support, debugger, test runner, Maven/Gradle tooling — install
-these into a dedicated VS Code profile rather than the default one, via
-`Profiles > Create Profile`, to keep the default profile lean.)
+**Python** ([`extensions-python.txt`](extensions-python.txt)) — language
+support (Pylance), debugger, and Ruff for linting/formatting:
+
+```sh
+xargs -n1 code --install-extension < extensions-python.txt
+```
+
+**TypeScript** ([`extensions-typescript.txt`](extensions-typescript.txt)) —
+ESLint and Prettier (TypeScript/JavaScript language support itself is built
+into VS Code):
+
+```sh
+xargs -n1 code --install-extension < extensions-typescript.txt
+```
+
+Swap `code` for `codium` or `kiro` to install into those editors instead.
