@@ -88,6 +88,22 @@
             "bindings": [
                 { "key": "t", "name": "toggle terminal", "type": "command", "command": "workbench.action.terminal.toggleTerminal" }
             ]
+        },
+        {
+            "key": "s",
+            "name": "+scratch",
+            "type": "bindings",
+            "bindings": [
+                { "key": "p", "name": "python", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.py" },
+                { "key": "j", "name": "java", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/Scratch.java" },
+                { "key": "s", "name": "javascript", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.js" },
+                { "key": "t", "name": "typescript", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.ts" },
+                { "key": "x", "name": "xml", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.xml" },
+                { "key": "h", "name": "html", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.html" },
+                { "key": "q", "name": "sql", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.sql" },
+                { "key": "m", "name": "markdown", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.md" },
+                { "key": "b", "name": "shell", "type": "command", "command": "vscode.open", "args": "/Users/darendanganan/scratch/scratch.sh" }
+            ]
         }
     ]
 }

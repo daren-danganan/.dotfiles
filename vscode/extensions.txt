@@ -6,3 +6,4 @@ mhutchie.git-graph
 donjayamanne.githistory
 usernamehw.errorlens
 alefragnani.project-manager
+formulahendry.code-runner

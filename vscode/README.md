@@ -46,6 +46,7 @@ xargs -n1 kiro --install-extension < extensions.txt
 | `donjayamanne.githistory` | Per-file/line history and compare — no account required |
 | `usernamehw.errorlens` | Diagnostics shown inline in the gutter instead of a side panel |
 | `alefragnani.project-manager` | Recent-projects switcher, closer to the JetBrains welcome screen |
+| `formulahendry.code-runner` | Run the current file/selection with one keybinding — pairs with the scratch files below, like JetBrains' scratch console |
 
 Optional per-language profile add-ons — install each into its own dedicated
 profile (`Profiles > Create Profile` in the editor's UI first; the CLI can't
@@ -111,3 +112,37 @@ hash=$(grep -B1 '"name": "Python"' "$user_dir/globalStorage/storage.json" \
     | grep '"location"' | sed -E 's/.*"location": "([^"]+)".*/\1/')
 ln -sf "$(pwd)/settings.json" "$user_dir/profiles/$hash/settings.json"
 ```
+
+## 3. Scratch files (JetBrains-style)
+
+JetBrains keeps a global, disposable, language-aware buffer per language,
+independent of any project. VS Code has no native equivalent, so
+`settings.json`'s `whichkey.bindings` defines a `<leader> s` menu that opens
+one fixed file per language under `~/scratch/` — same file reused every time,
+created once and left empty, syntax-highlighted by its extension:
+
+| Key | Language | File |
+| --- | --- | --- |
+| `p` | Python | `~/scratch/scratch.py` |
+| `j` | Java | `~/scratch/Scratch.java` |
+| `s` | JavaScript | `~/scratch/scratch.js` |
+| `t` | TypeScript | `~/scratch/scratch.ts` |
+| `x` | XML | `~/scratch/scratch.xml` |
+| `h` | HTML | `~/scratch/scratch.html` |
+| `q` | SQL | `~/scratch/scratch.sql` |
+| `m` | Markdown | `~/scratch/scratch.md` |
+| `b` | Shell | `~/scratch/scratch.sh` |
+
+Set up on a new machine:
+
+```sh
+mkdir -p "$HOME/scratch"
+cd "$HOME/scratch" && touch scratch.py Scratch.java scratch.js scratch.ts \
+    scratch.xml scratch.html scratch.sql scratch.md scratch.sh
+```
+
+The bindings hardcode the absolute path (`/Users/darendanganan/scratch/...`)
+since Which-Key's `args` field doesn't expand `~`/`$HOME` — update the paths
+in `settings.json` if the home directory ever changes. Use
+`formulahendry.code-runner` (base set above) to run a scratch file's contents
+with one keybinding, closer to JetBrains' scratch console.
