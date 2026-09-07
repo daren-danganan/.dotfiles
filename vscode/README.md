@@ -1,8 +1,11 @@
 # VS Code setup
 
-This config applies to both VS Code and VSCodium — they read the same
-`settings.json` format and pull extensions from compatible marketplaces
-(VSCodium defaults to Open VSX, which carries all three extensions below).
+This config applies to VS Code, VSCodium, and Kiro — all three are Code-OSS
+based, so they read the same `settings.json` format and pull extensions from
+compatible marketplaces (VSCodium and Kiro default to Open VSX, which carries
+all three extensions below). Kiro also ships its own built-in AI agent panel,
+so `anthropic.claude-code` may be redundant there — install it anyway if you
+want Claude Code specifically, skip it otherwise.
 
 ## 1. Settings
 
@@ -16,11 +19,12 @@ Symlink it into the default profile:
 ```sh
 ln -sf "$(pwd)/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 ln -sf "$(pwd)/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
+ln -sf "$(pwd)/settings.json" "$HOME/Library/Application Support/Kiro/User/settings.json"
 ```
 
-(`install.sh` at the repo root does this for you, for both editors. On Linux
-these paths are `~/.config/Code/User/settings.json` and
-`~/.config/VSCodium/User/settings.json`.)
+(`install.sh` at the repo root does this for you, for all three editors. On
+Linux these paths are `~/.config/Code/User/settings.json`,
+`~/.config/VSCodium/User/settings.json`, and `~/.config/Kiro/User/settings.json`.)
 
 ## 2. Extensions
 
@@ -29,6 +33,7 @@ Base set, needed in every profile ([`extensions.txt`](extensions.txt)):
 ```sh
 xargs -n1 code --install-extension < extensions.txt
 xargs -n1 codium --install-extension < extensions.txt
+xargs -n1 kiro --install-extension < extensions.txt
 ```
 
 | Extension | Purpose |
