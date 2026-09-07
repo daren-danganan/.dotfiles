@@ -47,7 +47,13 @@ profile (`Profiles > Create Profile` in the editor's UI first; the CLI can't
 create a named profile headlessly, only populate one that already exists).
 Each profile is otherwise empty by default, so also install `vscodevim.vim`
 and `vspacecode.whichkey` (see table above) and symlink `settings.json` into
-it, to keep the same Vim/Which-Key muscle memory as the default profile:
+it, to keep the same Vim/Which-Key muscle memory as the default profile.
+
+A `extensions-<lang>.txt` file only ever lists extensions available on Open
+VSX, so it installs cleanly on VS Code, VSCodium, and Kiro alike. Anything
+published exclusively to the Microsoft Marketplace goes in a companion
+`extensions-<lang>-vscode.txt` instead (Python has one, for Pylance) — install
+that file only when the target is genuine VS Code.
 
 **Java** ([`extensions-java.txt`](extensions-java.txt)) — language support,
 debugger, test runner, Maven/Gradle tooling:
@@ -57,12 +63,18 @@ xargs -n1 code --install-extension < extensions-java.txt
 ```
 
 **Python** ([`extensions-python.txt`](extensions-python.txt)) — language
-support (Pylance), debugger, and Ruff for linting/formatting. Pylance is
-Microsoft-proprietary and isn't published to Open VSX, so it won't install on
-VSCodium or Kiro — those editors get the rest of the set instead:
+support, debugger, and Ruff for linting/formatting; works on any editor:
 
 ```sh
 xargs -n1 code --install-extension < extensions-python.txt
+```
+
+Add Pylance ([`extensions-python-vscode.txt`](extensions-python-vscode.txt))
+on genuine VS Code only — it's Microsoft-proprietary and isn't published to
+Open VSX, so it won't install on VSCodium or Kiro:
+
+```sh
+xargs -n1 code --install-extension < extensions-python-vscode.txt
 ```
 
 **TypeScript** ([`extensions-typescript.txt`](extensions-typescript.txt)) —
