@@ -22,6 +22,10 @@ link "$repo_dir/.ideavimrc" "$HOME/.ideavimrc"
 
 case "$(uname -s)" in
     Darwin) vscode_user_dir="$HOME/Library/Application Support/Code/User" ;;
+    MINGW*|MSYS*|CYGWIN*)
+        vscode_user_dir="$(cygpath -u "$APPDATA")/Code/User"
+        echo "Windows detected: symlinking requires Developer Mode enabled (Settings > Update & Security > For developers), or running Git Bash as Administrator — otherwise 'ln -s' below will fail with Permission denied."
+        ;;
     *)      vscode_user_dir="$HOME/.config/Code/User" ;;
 esac
 link "$repo_dir/vscode/settings.json" "$vscode_user_dir/settings.json"
