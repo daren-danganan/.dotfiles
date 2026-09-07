@@ -43,6 +43,10 @@ link "$repo_dir/vscode/settings.json" "$vscode_user_dir/settings.json"
 link "$repo_dir/vscode/settings.json" "$vscodium_user_dir/settings.json"
 link "$repo_dir/vscode/settings.json" "$kiro_user_dir/settings.json"
 
+link "$repo_dir/vscode/keybindings.json" "$vscode_user_dir/keybindings.json"
+link "$repo_dir/vscode/keybindings.json" "$vscodium_user_dir/keybindings.json"
+link "$repo_dir/vscode/keybindings.json" "$kiro_user_dir/keybindings.json"
+
 if command -v code >/dev/null 2>&1; then
     echo "Installing base VS Code extensions..."
     xargs -n1 code --install-extension < "$repo_dir/vscode/extensions.txt"

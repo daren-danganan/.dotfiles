@@ -1,0 +1,17 @@
+[
+    // Default Source Control shortcut is a two-key chord (ctrl/cmd+shift+g, then g).
+    // VSCodeVim's normal-mode handler swallows the bare second "g" before the
+    // chord can complete, so it silently does nothing. Rebind to a single
+    // keystroke so it fires immediately and never reaches Vim's key handler.
+    // User keybindings.json has no "mac"/"win"/"linux" override field (that
+    // only exists for extension-contributed keybindings), so both chords are
+    // listed explicitly; whichever modifier the OS doesn't have is a no-op.
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "cmd+shift+g",
+        "command": "workbench.view.scm"
+    }
+]
