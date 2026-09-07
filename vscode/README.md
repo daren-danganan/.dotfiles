@@ -1,5 +1,9 @@
 # VS Code setup
 
+This config applies to both VS Code and VSCodium — they read the same
+`settings.json` format and pull extensions from compatible marketplaces
+(VSCodium defaults to Open VSX, which carries all three extensions below).
+
 ## 1. Settings
 
 [`settings.json`](settings.json) holds the shared config used across all
@@ -11,10 +15,12 @@ Symlink it into the default profile:
 
 ```sh
 ln -sf "$(pwd)/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+ln -sf "$(pwd)/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
 ```
 
-(`install.sh` at the repo root does this for you. On Linux this path is
-`~/.config/Code/User/settings.json`.)
+(`install.sh` at the repo root does this for you, for both editors. On Linux
+these paths are `~/.config/Code/User/settings.json` and
+`~/.config/VSCodium/User/settings.json`.)
 
 ## 2. Extensions
 
@@ -22,6 +28,7 @@ Base set, needed in every profile ([`extensions.txt`](extensions.txt)):
 
 ```sh
 xargs -n1 code --install-extension < extensions.txt
+xargs -n1 codium --install-extension < extensions.txt
 ```
 
 | Extension | Purpose |
