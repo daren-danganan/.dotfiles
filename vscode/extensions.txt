@@ -1,3 +1,8 @@
 anthropic.claude-code
 vscodevim.vim
 vspacecode.whichkey
+waderyan.gitblame
+mhutchie.git-graph
+donjayamanne.githistory
+usernamehw.errorlens
+alefragnani.project-manager

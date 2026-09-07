@@ -41,6 +41,11 @@ xargs -n1 kiro --install-extension < extensions.txt
 | `vscodevim.vim` | Vim emulation, driven by the `vim.*` keys in `settings.json` |
 | `vspacecode.whichkey` | Leader-key popup menu |
 | `anthropic.claude-code` | Claude Code |
+| `waderyan.gitblame` | Inline current-line blame in the status bar — no account required |
+| `mhutchie.git-graph` | Commit graph view — JetBrains' Git tool window, no account required |
+| `donjayamanne.githistory` | Per-file/line history and compare — no account required |
+| `usernamehw.errorlens` | Diagnostics shown inline in the gutter instead of a side panel |
+| `alefragnani.project-manager` | Recent-projects switcher, closer to the JetBrains welcome screen |
 
 Optional per-language profile add-ons — install each into its own dedicated
 profile (`Profiles > Create Profile` in the editor's UI first; the CLI can't
@@ -79,7 +84,9 @@ xargs -n1 code --install-extension < extensions-python-vscode.txt
 
 **TypeScript** ([`extensions-typescript.txt`](extensions-typescript.txt)) —
 ESLint and Prettier (TypeScript/JavaScript language support itself is built
-into VS Code):
+into VS Code), plus npm Intellisense, Path Intellisense, and Version Lens for
+`package.json`/import-path autocomplete and inline dependency-version hints,
+closer to WebStorm's dependency panel:
 
 ```sh
 xargs -n1 code --install-extension < extensions-typescript.txt
