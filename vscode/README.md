@@ -1,0 +1,41 @@
+# VS Code setup
+
+## 1. Settings
+
+[`settings.json`](settings.json) holds the shared config used across all
+profiles: Vim emulation (leader key, search/clipboard behavior) plus
+Which-Key menus that mirror the IdeaVim mappings in the repo root's
+`.ideavimrc`, so muscle memory carries over between VS Code and JetBrains IDEs.
+
+Symlink it into the default profile:
+
+```sh
+ln -sf "$(pwd)/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+```
+
+(`install.sh` at the repo root does this for you. On Linux this path is
+`~/.config/Code/User/settings.json`.)
+
+## 2. Extensions
+
+Base set, needed in every profile ([`extensions.txt`](extensions.txt)):
+
+```sh
+xargs -n1 code --install-extension < extensions.txt
+```
+
+| Extension | Purpose |
+| --- | --- |
+| `vscodevim.vim` | Vim emulation, driven by the `vim.*` keys in `settings.json` |
+| `vspacecode.whichkey` | Leader-key popup menu |
+| `anthropic.claude-code` | Claude Code |
+
+Optional Java profile add-ons ([`extensions-java.txt`](extensions-java.txt)):
+
+```sh
+xargs -n1 code --install-extension < extensions-java.txt
+```
+
+(Java language support, debugger, test runner, Maven/Gradle tooling — install
+these into a dedicated VS Code profile rather than the default one, via
+`Profiles > Create Profile`, to keep the default profile lean.)

@@ -1,0 +1,117 @@
+{
+    "vim.leader": "<space>",
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.timeout": 5000,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.rulers": [80],
+    "editor.cursorSurroundingLines": 8,
+    "editor.lineNumbers": "on",
+    "editor.autoIndent": "full",
+    "claudeCode.preferredLocation": "panel",
+    "vim.handleKeys": {
+        "<C-h>": true,
+        "<C-j>": true,
+        "<C-k>": true,
+        "<C-l>": true
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["<space>"], "commands": ["whichkey.show"] },
+        { "before": ["Q"], "after": ["g", "q"] },
+        { "before": ["g", "i"], "commands": ["editor.action.goToImplementation"] },
+        { "before": ["g", "r"], "commands": ["editor.action.goToReferences"] },
+        { "before": ["<leader>", "e", "e"], "commands": ["workbench.action.toggleSidebarVisibility"] },
+        { "before": ["<leader>", "e", "o"], "commands": ["workbench.files.action.focusFilesExplorer"] },
+        { "before": ["<leader>", "e", "f"], "commands": ["revealInExplorer"] },
+        { "before": ["<leader>", "b", "c"], "commands": ["workbench.action.closeActiveEditor"] },
+        { "before": ["<leader>", "b", "o"], "commands": ["workbench.action.closeOtherEditors"] },
+        { "before": ["<leader>", "b", "q"], "commands": ["workbench.action.closeAllEditors"] },
+        { "before": ["<leader>", "b", "h"], "commands": ["workbench.action.moveEditorToNextGroup"] },
+        { "before": ["<leader>", "b", "k"], "commands": ["workbench.action.moveEditorToNextGroup"] },
+        { "before": ["<leader>", "b", "j"], "commands": ["workbench.action.moveEditorToBelowGroup"] },
+        { "before": ["<leader>", "b", "l"], "commands": ["workbench.action.moveEditorRightInGroup"] },
+        { "before": ["<leader>", "b", "f"], "commands": ["editor.action.formatDocument"] },
+        { "before": ["<leader>", "d", "d"], "commands": ["workbench.action.debug.start"] },
+        { "before": ["<leader>", "d", "b"], "commands": ["editor.debug.action.toggleBreakpoint"] },
+        { "before": ["<leader>", "d", "r"], "commands": ["workbench.action.debug.run"] },
+        { "before": ["<leader>", "d", "K"], "commands": ["editor.action.showHover"] },
+        { "before": ["<leader>", "d", "n"], "commands": ["editor.action.marker.next"] },
+        { "before": ["<leader>", "d", "p"], "commands": ["editor.action.marker.prev"] },
+        { "before": ["<leader>", "d", "c"], "commands": ["workbench.action.debug.selectandstart"] },
+        { "before": ["<leader>", "d", "q"], "commands": ["workbench.action.debug.stop"] },
+        { "before": ["<leader>", "d", "k"], "commands": ["workbench.action.debug.stepOver"] },
+        { "before": ["<leader>", "d", "j"], "commands": ["workbench.action.debug.stepInto"] },
+        { "before": ["<leader>", "d", "h"], "commands": ["workbench.action.debug.stepOut"] },
+        { "before": ["<leader>", "d", "l"], "commands": ["workbench.action.debug.continue"] },
+        { "before": ["<leader>", "t", "t"], "commands": ["workbench.action.terminal.toggleTerminal"] },
+        { "before": ["<C-h>"], "after": ["<C-w>", "h"] },
+        { "before": ["<C-j>"], "after": ["<C-w>", "j"] },
+        { "before": ["<C-k>"], "after": ["<C-w>", "k"] },
+        { "before": ["<C-l>"], "after": ["<C-w>", "l"] }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        { "before": ["<"], "after": ["<", "g", "v"] },
+        { "before": [">"], "after": [">", "g", "v"] }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        { "before": ["j", "j"], "after": ["<Esc>"] }
+    ],
+    "whichkey.bindings": [
+        {
+            "key": "e",
+            "name": "+explorer",
+            "type": "bindings",
+            "bindings": [
+                { "key": "e", "name": "toggle explorer", "type": "command", "command": "workbench.action.toggleSidebarVisibility" },
+                { "key": "o", "name": "focus explorer", "type": "command", "command": "workbench.files.action.focusFilesExplorer" },
+                { "key": "f", "name": "reveal active file", "type": "command", "command": "revealInExplorer" }
+            ]
+        },
+        {
+            "key": "b",
+            "name": "+buffer",
+            "type": "bindings",
+            "bindings": [
+                { "key": "c", "name": "close", "type": "command", "command": "workbench.action.closeActiveEditor" },
+                { "key": "o", "name": "close others", "type": "command", "command": "workbench.action.closeOtherEditors" },
+                { "key": "q", "name": "close all", "type": "command", "command": "workbench.action.closeAllEditors" },
+                { "key": "h", "name": "move to opposite group", "type": "command", "command": "workbench.action.moveEditorToNextGroup" },
+                { "key": "k", "name": "move to opposite group", "type": "command", "command": "workbench.action.moveEditorToNextGroup" },
+                { "key": "j", "name": "move to group below", "type": "command", "command": "workbench.action.moveEditorToBelowGroup" },
+                { "key": "l", "name": "move right in group", "type": "command", "command": "workbench.action.moveEditorRightInGroup" },
+                { "key": "f", "name": "reformat", "type": "command", "command": "editor.action.formatDocument" }
+            ]
+        },
+        {
+            "key": "d",
+            "name": "+debug",
+            "type": "bindings",
+            "bindings": [
+                { "key": "d", "name": "debug", "type": "command", "command": "workbench.action.debug.start" },
+                { "key": "b", "name": "toggle breakpoint", "type": "command", "command": "editor.debug.action.toggleBreakpoint" },
+                { "key": "r", "name": "run", "type": "command", "command": "workbench.action.debug.run" },
+                { "key": "K", "name": "show error", "type": "command", "command": "editor.action.showHover" },
+                { "key": "n", "name": "next problem", "type": "command", "command": "editor.action.marker.next" },
+                { "key": "p", "name": "previous problem", "type": "command", "command": "editor.action.marker.prev" },
+                { "key": "c", "name": "choose config", "type": "command", "command": "workbench.action.debug.selectandstart" },
+                { "key": "q", "name": "stop", "type": "command", "command": "workbench.action.debug.stop" },
+                { "key": "k", "name": "step over", "type": "command", "command": "workbench.action.debug.stepOver" },
+                { "key": "j", "name": "step into", "type": "command", "command": "workbench.action.debug.stepInto" },
+                { "key": "h", "name": "step out", "type": "command", "command": "workbench.action.debug.stepOut" },
+                { "key": "l", "name": "continue", "type": "command", "command": "workbench.action.debug.continue" }
+            ]
+        },
+        {
+            "key": "t",
+            "name": "+terminal",
+            "type": "bindings",
+            "bindings": [
+                { "key": "t", "name": "toggle terminal", "type": "command", "command": "workbench.action.terminal.toggleTerminal" }
+            ]
+        }
+    ]
+}

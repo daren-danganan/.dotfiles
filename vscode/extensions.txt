@@ -1,0 +1,3 @@
+anthropic.claude-code
+vscodevim.vim
+vspacecode.whichkey

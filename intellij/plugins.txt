@@ -1,0 +1,12 @@
+# IntelliJ IDEA plugin IDs, one per line.
+# Install via Settings/Preferences > Plugins > Marketplace, searching by name,
+# or headlessly with: idea installPlugins <id> [<id> ...]
+# (see intellij/README.md for details)
+
+IdeaVIM                            # IdeaVim — Vim emulation
+eu.theblob42.idea.whichkey         # Which-Key — leader-key popup menu, mirrors .ideavimrc mappings
+com.github.dankinsoid.multicursor  # IdeaVim Multicursor — multiple cursors under IdeaVim
+com.intellij.plugins.vscodekeymap  # VSCode Keymap — bundled, just needs enabling
+com.github.copilot                 # GitHub Copilot
+com.mallowigi.idea                 # Material Theme UI Lite
+com.intellij.mcpServer             # MCP Server — bundled on recent versions, just needs enabling
